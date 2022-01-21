@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/charmixer/golang-cli-template/cmd"
-	"github.com/charmixer/golang-cli-template/env"
+	"github.com/wraix/shopit/cmd"
+	"github.com/wraix/shopit/env"
 )
 
 var (
-	name        string = "golang-cli-template"
+	name        string = "shopit"
 	version     string = "0.0.0"
 	environment string = "development"
 	commit      string

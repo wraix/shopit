@@ -1,4 +1,4 @@
 FROM scratch
-COPY golang-api-template-bin /
-ENTRYPOINT ["/golang-api-template-bin"]
+COPY shopit-bin /
+ENTRYPOINT ["/shopit-bin"]
 CMD ["version"]

@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
 
-  golang-cli-template:
+  shopit:
     build:
       context: .
       dockerfile: .docker/Dockerfile.dev

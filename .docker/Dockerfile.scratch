@@ -3,7 +3,7 @@
 FROM golang:1.16-alpine AS builder
 
 # Add Maintainer Info
-LABEL maintainer="charmixer"
+LABEL maintainer="wraix"
 
 RUN apk add --update --no-cache ca-certificates git curl
 

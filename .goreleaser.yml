@@ -1,5 +1,5 @@
 # .goreleaser.yml
-project_name: golang-api-template
+project_name: shopit
 
 env:
   - GO111MODULE=on
@@ -15,7 +15,7 @@ builds:
     # Binary name.
     # Can be a path (e.g. `bin/app`) to wrap the binary in a directory.
     # Default is the name of the project directory.
-    binary: golang-api-template-bin
+    binary: shopit-bin
 
     # Custom environment variables to be set during the builds.
     # Default is empty.
@@ -57,14 +57,14 @@ release:
   name_template: "{{.Tag}}"
 
 dockers:
-  - image_templates: ["ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-arm64"]
+  - image_templates: ["ghcr.io/wraix/{{.ProjectName}}:{{ .Version }}-linux-arm64"]
     use: buildx
     goarch: arm64
     dockerfile: .docker/Dockerfile.goreleaser
     build_flag_templates: ["--platform=linux/arm64/v8"]
     skip_push: auto
 
-  - image_templates: ["ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-amd64"]
+  - image_templates: ["ghcr.io/wraix/{{.ProjectName}}:{{ .Version }}-linux-amd64"]
     use: buildx
     goarch: amd64
     dockerfile: .docker/Dockerfile.goreleaser
@@ -77,17 +77,17 @@ docker_manifests:
       - ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-arm64
       - ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-amd64
     skip_push: auto
-  - name_template: ghcr.io/charmixer/{{.ProjectName}}:v{{ .Major }}.{{ .Minor }}
+  - name_template: ghcr.io/wraix/{{.ProjectName}}:v{{ .Major }}.{{ .Minor }}
     image_templates:
       - ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-arm64
       - ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-amd64
     skip_push: auto
-  - name_template: ghcr.io/charmixer/{{.ProjectName}}:v{{ .Major }}.{{ .Minor }}.{{ .Patch }}
+  - name_template: ghcr.io/wraix/{{.ProjectName}}:v{{ .Major }}.{{ .Minor }}.{{ .Patch }}
     image_templates:
       - ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-arm64
       - ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-amd64
     skip_push: auto
-  - name_template: ghcr.io/charmixer/{{.ProjectName}}:latest
+  - name_template: ghcr.io/wraix/{{.ProjectName}}:latest
     image_templates:
       - ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-arm64
       - ghcr.io/charmixer/{{.ProjectName}}:{{ .Version }}-linux-amd64

@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/charmixer/golang-cli-template/env"
+	"github.com/wraix/shopit/env"
 )
 
 type versionCmd struct{}
