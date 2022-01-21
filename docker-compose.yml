@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+
+  golang-cli-template:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile.dev
+    tty: true
+    # environment:
+      # - CFG_PATH=/app/config.yml
+    volumes:
+        # Source code
+      - .:/app
+    restart: on-failure
